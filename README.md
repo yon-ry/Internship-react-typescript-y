@@ -12,7 +12,7 @@ npm install
 ```bash
 npm run dev
 ```
-# GitHub 使い方、
+# GitHub 使い方 初回
 1. リポジトリの初期化
 ```bash
 git init
@@ -37,7 +37,25 @@ git remote add origin url
 ```bash
 git branch -M main
 ```
-7. GitHub1へアップロード
+7. GitHubへアップロード
 ```bash
 git push -u origin main
+```
+
+# GitHub 使い方 2回目以降
+1. 状態確認
+```bash
+git status
+```
+2. ステージング
+```bash
+git add .
+```
+3. コミット
+```bash
+git commit -m "コメント"
+```
+4. プッシュ
+```bash
+git push
 ```
