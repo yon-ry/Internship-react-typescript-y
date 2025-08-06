@@ -1,11 +1,11 @@
 
 import { useState } from 'react';
 import './App.css'
-
 import {closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors} from "@dnd-kit/core"
 import { Column } from './components/Column/Column';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Input } from './components/Input/Input';
+
 
 function App() {
 
