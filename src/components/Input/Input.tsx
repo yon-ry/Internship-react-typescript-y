@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
-
+import React, { useState, ChangeEvent } from 'react'
 import "./Input.css"
 
-export const Input = ({onSubmit}) => {
-    const [input, setInput] = useState("");
+interface InputProps {
+  onSubmit: (input: string) => void;
+}
+
+
+export const Input: React.FC<InputProps> = ({onSubmit}) => {
+    const [input, setInput] = useState<string>("");
 
     const handleSubmit = () =>{
         if (!input) return;
@@ -13,12 +17,16 @@ export const Input = ({onSubmit}) => {
         setInput("");
     };
 
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    };
+
   return (
     <div className='container'>
         <input type="text" 
         className='input' 
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleChange}
         />
         <button onClick={handleSubmit} className='button'>
             追加
