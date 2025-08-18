@@ -6,25 +6,29 @@ import { Column } from './components/Column/Column';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Input } from './components/Input/Input';
 
+interface TaskType{
+  id: number;
+  title: string;
+}
 
 function App() {
 
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState<TaskType[]>([
     { id: 1, title: "洗い物"},
     { id: 2, title: "洗濯"},
     { id: 3, title: "ゴミ捨て"},
   ]);
   
-  const addTask = (title) =>{
+  const addTask = (title: string) =>{
     setTasks((tasks) => [...tasks, {id: tasks.length + 1, title
     }]);
   };
 
-  const getTaskPos = (id) => tasks.findIndex((task) => 
+  const getTaskPos = (id: number) => tasks.findIndex((task) => 
     task.id === id)
 
 
-  const handleDragEnd = (event) => {
+  const handleDragEnd = (event: any) => {
     const {active, over} = event;
 
     if(active.id === over.id) return;
