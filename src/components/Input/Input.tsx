@@ -1,36 +1,36 @@
-import React, { useState, ChangeEvent } from 'react'
-import "./Input.css"
+import React, { useState, type ChangeEvent } from "react";
+import "./Input.css";
 
 interface InputProps {
   onSubmit: (input: string) => void;
 }
 
+export const Input: React.FC<InputProps> = ({ onSubmit }) => {
+  const [input, setInput] = useState<string>("");
 
-export const Input: React.FC<InputProps> = ({onSubmit}) => {
-    const [input, setInput] = useState<string>("");
+  const handleSubmit = () => {
+    if (!input) return;
 
-    const handleSubmit = () =>{
-        if (!input) return;
+    onSubmit(input);
 
-        onSubmit(input);
+    setInput("");
+  };
 
-        setInput("");
-    };
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInput(e.target.value);
-    };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
 
   return (
-    <div className='container'>
-        <input type="text" 
-        className='input' 
+    <div className="container">
+      <input
+        type="text"
+        className="input"
         value={input}
         onChange={handleChange}
-        />
-        <button onClick={handleSubmit} className='button'>
-            追加
-        </button>
+      />
+      <button onClick={handleSubmit} className="button">
+        追加
+      </button>
     </div>
   );
 };
